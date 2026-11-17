@@ -20,8 +20,8 @@ def setup_logging() -> None:
         level=logging.INFO,
         format="%(asctime)s %(levelname)s: %(message)s",
         handlers=[logging.FileHandler(LOG_PATH, encoding="utf-8"),
-                  logging.StreamHandler()],
-        force=True,
+                  logging.StreamHandler()]
+     
     )
 
 
