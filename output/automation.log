@@ -1,0 +1,30 @@
+2026-11-17 22:32:55,249 INFO: Starting Excel report automation.
+2026-11-17 22:32:55,250 ERROR: Automation failed: Create an input folder at: C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\input
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\automation.py", line 128, in main
+    data, file_summary = read_excel_reports()
+                         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\automation.py", line 40, in read_excel_reports
+    raise FileNotFoundError(f"Create an input folder at: {input_dir}")
+FileNotFoundError: Create an input folder at: C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\input
+2026-11-17 22:34:16,069 INFO: Starting Excel report automation.
+2026-11-17 22:34:16,071 ERROR: Automation failed: No Excel files found in C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\input
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\automation.py", line 128, in main
+    data, file_summary = read_excel_reports()
+                         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\automation.py", line 45, in read_excel_reports
+    raise FileNotFoundError(f"No Excel files found in {input_dir}")
+FileNotFoundError: No Excel files found in C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\input
+2026-11-17 22:35:31,724 INFO: Starting Excel report automation.
+2026-11-17 22:35:31,726 INFO: Reading sales_february.xlsx
+2026-11-17 22:35:32,239 INFO: Reading sales_january.xlsx
+2026-11-17 22:35:32,296 INFO: Reading sales_march.xlsx
+2026-11-17 22:35:32,435 INFO: Saved report: C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\output\Final_Report_20261117_223532.xlsx
+2026-11-17 22:35:32,436 INFO: Completed successfully: C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\output\Final_Report_20261117_223532.xlsx
+2026-11-17 22:36:18,135 INFO: Starting Excel report automation.
+2026-11-17 22:36:18,138 INFO: Reading sales_february.xlsx
+2026-11-17 22:36:18,518 INFO: Reading sales_january.xlsx
+2026-11-17 22:36:18,535 INFO: Reading sales_march.xlsx
+2026-11-17 22:36:18,627 INFO: Saved report: C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\output\Final_Report_20261117_223618.xlsx
+2026-11-17 22:36:18,628 INFO: Completed successfully: C:\Users\ASUS\Desktop\skillpilots\Excel_Report_Automation\output\Final_Report_20261117_223618.xlsx
