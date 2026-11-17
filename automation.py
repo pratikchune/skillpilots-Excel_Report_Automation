@@ -14,25 +14,44 @@ LOG_PATH = OUTPUT_DIR / "automation.log"
 
 
 def setup_logging() -> None:
-    """Set up logging to the console and output/automation.log."""
+    """Configure application logging.
+
+    Creates the output directory and configures logging
+    to write messages to both the log file and console.
+    """
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s: %(message)s",
-        handlers=[logging.FileHandler(LOG_PATH, encoding="utf-8"),
-                  logging.StreamHandler()]
-     
-    )
+
+    if not logging.getLogger().handlers:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s %(levelname)s: %(message)s",
+            handlers=[
+                logging.FileHandler(LOG_PATH, encoding="utf-8"),
+                logging.StreamHandler()
+            ]
+        )
 
 
 def clean_excel_data(df: pd.DataFrame) -> pd.DataFrame:
-    """Remove empty rows/columns, trim text, and remove duplicate rows."""
+    """Clean a DataFrame loaded from an Excel worksheet.
+
+    Removes completely empty rows and columns, trims whitespace
+    from column names and text values, converts empty strings
+    to missing values, and removes duplicate records.
+
+    Args:
+        df: Raw DataFrame read from an Excel worksheet.
+
+    Returns:
+        A cleaned pandas DataFrame.
+    """
     df = df.dropna(how="all").dropna(axis=1, how="all").copy()
     df.columns = [str(c).strip() for c in df.columns]
+
     for col in df.select_dtypes(include=["object", "string"]).columns:
         df[col] = df[col].astype("string").str.strip().replace("", pd.NA)
-    return df.drop_duplicates()
 
+    return df.drop_duplicates()
 
 def read_excel_reports(input_dir: Path = INPUT_DIR) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Read worksheets sequentially and return combined data and file counts."""
